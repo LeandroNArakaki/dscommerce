@@ -4,7 +4,6 @@ import com.devsuperior.dscommerce.enums.OrderStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,7 +27,7 @@ public class Order {
     private Long id;
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
-    @Enumerated
+
     private OrderStatus orderStatus;
 
     @ManyToOne
@@ -42,6 +41,14 @@ public class Order {
     private Set<OrderItem> orderItems = new HashSet<>();
 
     public Order() {
+    }
+
+    public Order(Long id, Instant moment, OrderStatus orderStatus, User client, Payment payment) {
+        this.id = id;
+        this.moment = moment;
+        this.orderStatus = orderStatus;
+        this.client = client;
+        this.payment = payment;
     }
 
     public Long getId() {
