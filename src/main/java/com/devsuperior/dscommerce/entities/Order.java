@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -40,6 +41,8 @@ public class Order {
     @OneToMany(mappedBy = "id.order")
     private Set<OrderItem> orderItems = new HashSet<>();
 
+    public Order() {
+    }
 
     public Long getId() {
         return id;
@@ -83,5 +86,9 @@ public class Order {
 
     public Set<OrderItem> getOrderItems() {
         return orderItems;
+    }
+
+    public List<Product> getProducts() {
+        return orderItems.stream().map(x -> x.getProduct()).toList();
     }
 }

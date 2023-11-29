@@ -13,6 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -36,6 +37,10 @@ public class Product {
 
     @OneToMany(mappedBy = "id.product")
     private Set<OrderItem> orderItems = new HashSet<>();
+
+    public Product() {
+    }
+
 
 
     public Long getId() {
@@ -85,4 +90,9 @@ public class Product {
     public Set<OrderItem> getOrderItems() {
         return orderItems;
     }
+
+    public List<Order> getOrders() {
+        return orderItems.stream().map(x -> x.getOrder()).toList();
+    }
+
 }
