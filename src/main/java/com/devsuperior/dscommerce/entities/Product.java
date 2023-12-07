@@ -43,12 +43,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(ProductDTO dto) {
-        this.name = dto.getName();
-        this.description = dto.getDescription();
-        this.price = dto.getPrice();
-        this.imgUrl = dto.getImgUrl();
-    }
+
 
     public Long getId() {
         return id;
