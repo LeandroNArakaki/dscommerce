@@ -38,7 +38,7 @@ public class ProductService {
     public ProductDTO update(Long id, ProductDTO dto) {
         Product entity = repository.getReferenceById(id);
         copyDtoToEntity(dto, entity);
-        entity = repository.save(entity);
+        entity = repository.saveAndFlush(entity);
         return new ProductDTO(entity);
     }
 
