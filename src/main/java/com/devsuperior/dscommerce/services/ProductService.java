@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 @Service
 public class ProductService {
@@ -37,14 +38,15 @@ public class ProductService {
         copyDtoToEntity(dto, entity);
         entity = repository.save(entity);
         return new ProductDTO(entity);
+
     }
 
-    @Transactional(propagation = Propagation.SUPPORTS)
+    @Transactional
     public ProductDTO update(Long id, ProductDTO dto) {
         try {
             Product entity = repository.getReferenceById(id);
             copyDtoToEntity(dto, entity);
-            entity = repository.saveAndFlush(entity);
+            entity = repository.save(entity);
             return new ProductDTO(entity);
 
         } catch (EntityNotFoundException e) {
@@ -72,6 +74,5 @@ public class ProductService {
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
     }
-
 
 }
