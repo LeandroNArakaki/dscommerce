@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ProductService {
+
     @Autowired
     private ProductRepository repository;
 
@@ -26,8 +27,8 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(Pageable pageable) {
-        Page<Product> entity = repository.findAll(pageable);
+    public Page<ProductDTO> searchByName(String name, Pageable pageable) {
+        Page<Product> entity = repository.searchByName(name,pageable);
         return entity.map(x -> new ProductDTO(x));
     }
 
