@@ -22,7 +22,7 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         List<UserDetailsProjection> projections = repository.searchUserAndRolesByEmail(username);
         if (projections.isEmpty()) {
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException("Email not found");
         }
 
         User user = new User();
