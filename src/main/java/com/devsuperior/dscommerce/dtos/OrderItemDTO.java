@@ -26,7 +26,7 @@ public class OrderItemDTO {
     }
 
 
-    public Double subTotal(){
+    public Double getSubTotal(){
         return price * quantity;
     }
 }

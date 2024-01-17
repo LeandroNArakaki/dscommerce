@@ -19,7 +19,6 @@ public class OrderDTO {
     private ClientDTO client;
     private PaymentDTO payment;
 
-
     @NotEmpty(message = "Deve ter pelo menos um item")
     private List<OrderItemDTO> items = new ArrayList<>();
 
@@ -48,7 +47,7 @@ public class OrderDTO {
     public Double getTotal() {
         double sum = 0.0;
         for (OrderItemDTO item : items) {
-            sum += item.subTotal();
+            sum += item.getSubTotal();
         }
         return sum;
     }
