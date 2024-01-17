@@ -6,10 +6,12 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class ProductDTO {
 
     private Long id;
@@ -47,27 +49,4 @@ public class ProductDTO {
     }
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public List<CategoryDTO> getCategories() {
-        return categories;
-    }
 }

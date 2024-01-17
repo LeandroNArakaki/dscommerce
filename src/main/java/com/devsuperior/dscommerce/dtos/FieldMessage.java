@@ -1,5 +1,8 @@
 package com.devsuperior.dscommerce.dtos;
 
+import lombok.Getter;
+
+@Getter
 public class FieldMessage {
 
     private String fieldName;
@@ -11,11 +14,5 @@ public class FieldMessage {
         this.message = message;
     }
 
-    public String getFieldName() {
-        return fieldName;
-    }
 
-    public String getMessage() {
-        return message;
-    }
 }

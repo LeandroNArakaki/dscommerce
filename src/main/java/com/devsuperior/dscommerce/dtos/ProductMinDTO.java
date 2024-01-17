@@ -1,7 +1,9 @@
 package com.devsuperior.dscommerce.dtos;
 
 import com.devsuperior.dscommerce.entities.Product;
+import lombok.Getter;
 
+@Getter
 public class ProductMinDTO {
 
     private Long id;
@@ -25,19 +27,4 @@ public class ProductMinDTO {
     }
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
 }

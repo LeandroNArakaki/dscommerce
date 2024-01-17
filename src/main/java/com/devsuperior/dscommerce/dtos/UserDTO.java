@@ -1,12 +1,14 @@
 package com.devsuperior.dscommerce.dtos;
 
 import com.devsuperior.dscommerce.entities.User;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class UserDTO {
 
     private Long id;
@@ -27,27 +29,5 @@ public class UserDTO {
         }
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public List<String> getRoles() {
-        return roles;
-    }
 }
