@@ -4,8 +4,6 @@ import com.devsuperior.dscommerce.enums.OrderStatus;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -41,7 +39,7 @@ public class Order {
     private Payment payment;
 
     @OneToMany(mappedBy = "id.order")
-    private Set<OrderItem> orderItems = new HashSet<>();
+    private Set<OrderItem> items = new HashSet<>();
 
     public Order() {
     }
@@ -94,12 +92,12 @@ public class Order {
         this.payment = payment;
     }
 
-    public Set<OrderItem> getOrderItems() {
-        return orderItems;
+    public Set<OrderItem> getItems() {
+        return items;
     }
 
     public List<Product> getProducts() {
-        return orderItems.stream().map(x -> x.getProduct()).toList();
+        return items.stream().map(x -> x.getProduct()).toList();
     }
 
 
